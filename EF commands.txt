@@ -1,0 +1,15 @@
+ Установка
+dotnet tool install --global dotnet-ef
+
+ Обновление
+dotnet tool update --global dotnet-ef --version 5.0.11
+
+ Проверка установки
+dotnet ef
+
+ Формирование шаблона для существующей БД
+dotnet ef dbcontext scaffold "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ALS;Integrated Security=True" "Microsoft.EntityFrameworkCore.SqlServer" --output-dir "Entities" --context AlsDbContext --context-dir "Data"
+
+ Миграция для другого проекта
+  Запускать в папке Als.Domain
+dotnet ef migrations add <имя_миграции> --output-dir ../Als.Domain/Data/Migrations --startup-project ../Als.WebUI --verbose --context AlsDbContext
