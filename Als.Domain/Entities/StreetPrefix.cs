@@ -5,17 +5,17 @@ using System.Collections.Generic;
 
 namespace Als.Domain.Entities
 {
-    public partial class Cprefix
+    public partial class StreetPrefix
     {
-        public Cprefix()
+        public StreetPrefix()
         {
-            Cstreets = new HashSet<Street>();
+            Streets = new HashSet<Street>();
         }
 
         public byte Id { get; set; }
         public string Prefix { get; set; }
         public string Abb { get; set; }
 
-        public virtual ICollection<Street> Cstreets { get; set; }
+        public virtual ICollection<Street> Streets { get; set; }
     }
 }

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Als.Domain.Entities
 {
-    public partial class Model
+    public partial class LiftModel
     {
-        public Model()
+        public LiftModel()
         {
             Lifts = new HashSet<Lift>();
         }

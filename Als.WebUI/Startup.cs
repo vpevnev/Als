@@ -1,3 +1,5 @@
+using Als.Domain.Abstract;
+using Als.Domain.Concrete;
 using Als.Domain.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +25,8 @@ namespace Als.WebUI
                 ));
 
             services.AddMvc(option => option.EnableEndpointRouting = false);
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

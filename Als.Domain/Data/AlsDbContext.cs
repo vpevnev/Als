@@ -17,17 +17,16 @@ namespace Als.Domain.Data
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Cause> Causes { get; set; }
         public virtual DbSet<CauseAndDamage> CauseAndDamages { get; set; }
-        public virtual DbSet<Cprefix> Cprefixes { get; set; }
         public virtual DbSet<Damage> Damages { get; set; }
         public virtual DbSet<DoorType> DoorTypes { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EngineType> EngineTypes { get; set; }
         public virtual DbSet<Lift> Lifts { get; set; }
+        public virtual DbSet<LiftModel> LiftModels { get; set; }
         public virtual DbSet<LiftType> LiftTypes { get; set; }
         public virtual DbSet<LoginTable> LoginTables { get; set; }
         public virtual DbSet<Manufacturer> Manufacturers { get; set; }
         public virtual DbSet<Mark> Marks { get; set; }
-        public virtual DbSet<Model> Models { get; set; }
         public virtual DbSet<Owner> Owners { get; set; }
         public virtual DbSet<Place> Places { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
@@ -37,6 +36,7 @@ namespace Als.Domain.Data
         public virtual DbSet<SecurityType> SecurityTypes { get; set; }
         public virtual DbSet<Specification> Specifications { get; set; }
         public virtual DbSet<StationType> StationTypes { get; set; }
+        public virtual DbSet<StreetPrefix> StreetPrefixes { get; set; }
         public virtual DbSet<Street> Streets { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -70,31 +70,6 @@ namespace Als.Domain.Data
                     .HasColumnName("value");
             });
 
-            modelBuilder.Entity<Cprefix>(entity =>
-            {
-                entity.ToTable("cprefix");
-
-                entity.HasComment("Префикс");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Abb)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("abb")
-                    .HasComment("Сокращение");
-
-                entity.Property(e => e.Prefix)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("prefix")
-                    .HasComment("Префикс");
-            });
-
             modelBuilder.ApplyConfiguration(new DamageConfiguration());
 
             modelBuilder.ApplyConfiguration(new DoorTypeConfiguration());
@@ -104,6 +79,8 @@ namespace Als.Domain.Data
             modelBuilder.ApplyConfiguration(new EngineTypeConfiguration());
 
             modelBuilder.ApplyConfiguration(new LiftConfiguration());
+
+            modelBuilder.ApplyConfiguration(new LiftModelConfiguration());
 
             modelBuilder.ApplyConfiguration(new LiftTypeConfiguration());
 
@@ -139,8 +116,6 @@ namespace Als.Domain.Data
 
             modelBuilder.ApplyConfiguration(new MarkConfiguration());
 
-            modelBuilder.ApplyConfiguration(new ModelConfiguration());
-
             modelBuilder.ApplyConfiguration(new OwnerConfiguration());
 
             modelBuilder.ApplyConfiguration(new PlaceConfiguration());
@@ -160,6 +135,8 @@ namespace Als.Domain.Data
             modelBuilder.ApplyConfiguration(new StationTypeConfiguration());
 
             modelBuilder.ApplyConfiguration(new StreetConfiguration());
+
+            modelBuilder.ApplyConfiguration(new StreetPrefixConfiguration());
         }
     }
 }

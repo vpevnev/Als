@@ -42,7 +42,7 @@ namespace Als.Domain.Entities
         public virtual EngineType EngineNavigation { get; set; }
         public virtual Manufacturer ManufacturerNavigation { get; set; }
         public virtual Employee MechanicNavigation { get; set; }
-        public virtual Model ModelNavigation { get; set; }
+        public virtual LiftModel ModelNavigation { get; set; }
         public virtual Mark MropeCabNavigation { get; set; }
         public virtual Owner OwnerNavigation { get; set; }
         public virtual SecurityType SecurityNavigation { get; set; }

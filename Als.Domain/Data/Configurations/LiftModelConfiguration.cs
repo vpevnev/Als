@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Als.Domain.Data.Configurations
 {
-    public class ModelConfiguration : IEntityTypeConfiguration<Model>
+    public class LiftModelConfiguration : IEntityTypeConfiguration<LiftModel>
     {
-        public void Configure(EntityTypeBuilder<Model> builder)
+        public void Configure(EntityTypeBuilder<LiftModel> builder)
         {
             builder.ToTable("cmodel");
 

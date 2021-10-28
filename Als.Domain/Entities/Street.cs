@@ -16,7 +16,7 @@ namespace Als.Domain.Entities
         public string StreetName { get; set; }
         public byte Prefix { get; set; }
 
-        public virtual Cprefix PrefixNavigation { get; set; }
+        public virtual StreetPrefix PrefixNavigation { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
     }
 }

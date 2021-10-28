@@ -26,7 +26,7 @@ namespace Als.Domain.Data.Configurations
                 .HasComment("Название");
 
             builder.HasOne(d => d.PrefixNavigation)
-                .WithMany(p => p.Cstreets)
+                .WithMany(p => p.Streets)
                 .HasForeignKey(d => d.Prefix)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_cstreet_cprefix");
